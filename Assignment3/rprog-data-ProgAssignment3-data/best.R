@@ -37,7 +37,7 @@ best <- function(state, outcome) {
         # Get the min
         min_value <- min(data_valid[[3]])
         result <- data_valid$Hospital.Name[which(data_valid[[3]] == min_value)]
-        
+        result <- result[order(result)]
     }
     else if (!state_valid){
         stop("invalid state")
@@ -47,5 +47,5 @@ best <- function(state, outcome) {
     }
     ## Return hospital name in that state with lowest 30-day death
     ## rate
-    result
+    result[1]
 }
